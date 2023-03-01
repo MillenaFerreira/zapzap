@@ -111,8 +111,13 @@ body {
 .container-conversas {
   display: flex;
   padding: 14px;
-  cursor: pointer;
-  /*novo*/
+  cursor: pointer;/*novo*/
+  border: none;
+  background-color: #ffffff;
+}
+
+.container-conversas:hover{
+  background-color: #e9edef;
 }
 
 .img-chat {
@@ -139,8 +144,7 @@ body {
 .info-conversa {
   color: #3B4A54;
   font-size: 14px;
-  text-overflow: ellipsis;
-  /*novo*/
+  text-overflow: ellipsis;/*novo*/
 }
 
 .hora {
@@ -174,6 +178,7 @@ body {
   background-color: #F0F2F5;
   align-items: center;
   padding-right: 16px;
+  border-left: 0.5px solid #d1d7db;
 }
 
 .nav-perfil-direito {
@@ -220,8 +225,8 @@ body {
 }
 
 .bolinha {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: #01c92c;
   border: 0;
@@ -247,7 +252,7 @@ body {
   text-align: right;
   max-width: 65%;
   padding: 12px;
-  background-color: #dfb877;
+  background-color: #d9fdd3;
   border-radius: 10px;
   font-size: 0.9em;
 }
@@ -290,7 +295,32 @@ body {
   background: linear-gradient(135deg, #fff 0%, #fff 50%, transparent 50%, transparent 50%, )
 } */
 
-
+.chatBox_input{
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: #f0f2f5;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-left: 1px solid #e9edef;
+}
+.chatBox_input i{
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #54656f;
+}
+.chatBox_input input{
+  position: relative;
+  width: 90%;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-size: 1em;
+}
 
 
 

@@ -6,7 +6,7 @@ const criarCard = (contato) => {
     const mensagem = document.createElement('ul')
     mensagem.classList.add('container-mensagens')
 
-    const conversa = document.createElement('block')
+    const conversa = document.createElement('button')
     conversa.classList.add('container-conversas')
 
     const foto = document.createElement('img')
@@ -48,5 +48,12 @@ const carregarContatos = () => {
 
     container.replaceChildren(...contatosMensagens)
 }
+
+const acaoDoButao = document.getElementById('')
+
+function criarCardDireito(){
+    
+}
+
 
 carregarContatos()
