@@ -2,16 +2,35 @@
 
 import {contatos} from "./contatos.js"
 
-const criarCard = (contato) => {
-    const mensagem = document.createElement('ul')
-    mensagem.classList.add('container-mensagens')
+// let cont = 0
+// const adicionarId = (contato) => {
+//     contato.id =  cont++
+//     return contato
+// }
 
-    const conversa = document.createElement('button')
+// const contatos2 = contatos.map(adicionarId)
+
+//console.log (contatos2)
+
+const criarCard = (contato, indice) => {
+    // const mensagem = document.createElement('ul')
+    // mensagem.classList.add('container-mensagens')
+
+    // const mensagem = document.getElementById('container-mensagens')
+
+    const conversa = document.createElement('div')
     conversa.classList.add('container-conversas')
+    //conversa.setAttribute('id', 'id-' + indice)
+    // conversa.onclick = teste
+
+    conversa.addEventListener('click', (event) => {
+
+        console.log(contatos[indice])
+    })
 
     const foto = document.createElement('img')
     foto.classList.add('img-chat')
-    foto.src = `../img/${contato.image}`
+    foto.src = `../img/dois-colegas-em-um-fabrica.jpg`
 
     const informacao = document.createElement('div')
     informacao.classList.add('container-info')
@@ -30,7 +49,7 @@ const criarCard = (contato) => {
     hora.classList.add('hora')
     hora.textContent = contato.hora
 
-    mensagem.append(conversa)
+    // mensagem.append(conversa)
 
     conversa.append(foto, informacao, nome, hora)
 
@@ -38,22 +57,41 @@ const criarCard = (contato) => {
 
     perfil.append(nome, descricao)
 
-    return mensagem
+    return conversa
 
 }
 
 const carregarContatos = () => {
-    const container = document.getElementById('container')
+    const container = document.getElementById('container-mensagens')
     const contatosMensagens = contatos.map(criarCard)
 
     container.replaceChildren(...contatosMensagens)
 }
 
-const acaoDoButao = document.getElementById('')
+// const acaoDoButao = document.getElementById('')
 
-function criarCardDireito(){
-    
-}
+//  function teste(event){
+//     console.log(event.target.id)
+//  }
 
+
+ const criarChat = (contato) => {
+    const containerChat = document.getElementById('containerChat')
+    containerChat.innerHTML = "";
+
+    contato.containerChat.reverse().forEach((mensagem) => {
+        const headerChat = document.createElement('div')
+        headerChat.classList.add('header-direito')
+    });
+
+ }
 
 carregarContatos()
+
+// const container = document.getElementById('container')
+
+
+
+// console.log (containerConversas)
+
+// container.addEventListener('click', teste)
