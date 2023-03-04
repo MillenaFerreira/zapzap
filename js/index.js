@@ -75,18 +75,34 @@ const carregarContatos = () => {
 //  }
 
 
- const criarChat = (contato) => {
-    const containerChat = document.getElementById('containerChat')
-    containerChat.innerHTML = "";
+//  const criarChat = (contato) => {
+//     const containerChat = document.getElementById('containerChat')
+//     containerChat.innerHTML = "";
 
-    contato.containerChat.reverse().forEach((mensagem) => {
-        const headerChat = document.createElement('div')
-        headerChat.classList.add('header-direito')
-    });
+//     contato.containerChat.reverse().forEach((mensagem) => {
+//         const headerChat = document.createElement('div')
+//         headerChat.classList.add('header-direito')
+//     });
 
- }
+//  }
 
 carregarContatos()
+
+
+
+var div = document.getElementById('container-mensagens');
+
+div.addEventListener('click', function() {
+
+    var container = document.getElementById('containerD');
+    container.classList.toggle('hide');
+
+
+
+});
+
+
+console.log();
 
 // const container = document.getElementById('container')
 
@@ -95,3 +111,5 @@ carregarContatos()
 // console.log (containerConversas)
 
 // container.addEventListener('click', teste)
+
+
