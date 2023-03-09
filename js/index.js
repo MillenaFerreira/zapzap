@@ -9,8 +9,8 @@ const criarCard = (contato, indice) => {
 
     conversa.addEventListener('click', (event) => {
         var container = document.getElementById('container-chat')
-        container.appendChild(criarMensagem(indice))
-        container.appendChild(criarHeader(indice))
+        container.replaceChildren(criarHeader(indice), criarMensagem(indice), carregarBarraDeMensagem())
+        barraDeRolagem()
     })
 
     const foto = document.createElement('img')
@@ -72,7 +72,9 @@ const criarMensagem = (indice) => {
 
     const containerMensagensDireita = document.createElement('div')
     containerMensagensDireita.classList.add('container-mensagens-direita');
-
+    
+    contatos[indice].messages.forEach((mensagem) => {
+        
     const caixaMensagensMinha = document.createElement('div')
     caixaMensagensMinha.classList.add('caixa-mensagens-minha')
 
@@ -91,8 +93,7 @@ const criarMensagem = (indice) => {
     const horaSua = document.createElement('span')
     horaSua.classList.add('hora-sua')
 
-    
-    contatos[indice].messages.forEach((mensagem) => {
+
         
         if (mensagem.sender == 'me') {
 
@@ -101,6 +102,7 @@ const criarMensagem = (indice) => {
 
             horaMinha.classList.add('hora-minha')
             horaMinha.textContent = mensagem.time
+            caixaMensagensMinha.append(msgMinha, horaMinha)
 
         } else if (mensagem.sender == contatos[indice].name) {
 
@@ -109,24 +111,29 @@ const criarMensagem = (indice) => {
 
             horaSua.classList.add('hora-sua')
             horaSua.textContent = mensagem.time
+            caixaMensagensSua.append(msgSua, horaSua)
 
         }
+        containerMensagensDireita.append(caixaMensagensMinha, caixaMensagensSua)
     })
-
-    containerMensagensDireita.append(caixaMensagensMinha, caixaMensagensSua)
-
-    caixaMensagensMinha.append(msgMinha, horaMinha)
-
-    caixaMensagensSua.append(msgSua, horaSua)
-
     return containerMensagensDireita
-
 }
-
 const carregarContatos = () => {
     const container = document.getElementById('container-mensagens')
     const contatosMensagens = contatos.map(criarCard)
     container.replaceChildren(...contatosMensagens)
+}
+const carregarBarraDeMensagem = () => {
+    const barraMensagem = document.getElementById('footer')
+    barraMensagem.classList.remove('chatBox_input-none')
+    barraMensagem.classList.add('chatBox_input')
+    return footer
+}
+
+const barraDeRolagem = () =>  window.scroll (0, document.body.scrollHeight)
+const voltar = () => {
+    const back = document.createAttribute('a')
+    back.classList.add('back')
 }
 
 carregarContatos()
